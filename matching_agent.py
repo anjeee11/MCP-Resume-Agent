@@ -1,15 +1,15 @@
 """
 matching_agent.py
 ===================
-Milestone 4 — Part B: Agent Refactoring.
+Part B: Agent Refactoring.
 
-This is the Milestone 3 LangGraph resume-matching agent, refactored so it
+This is a LangGraph resume-matching agent, refactored so it
 no longer imports `fs_tools` directly. All file-system access now goes
 through `filesystem_mcp_server.py` via `MCPClientManager`, over the real
-MCP/JSON-RPC 2.0 protocol. Matching/scoring logic (Milestone 2-ish) is kept
-in-process since it's pure computation, not I/O — there's no protocol
-reason to put it behind MCP, and doing so would just add latency without
-adding a real capability boundary.
+MCP/JSON-RPC 2.0 protocol. Matching/scoring logic is kept in-process
+since it's pure computation, not I/O — there's no protocol reason to put
+it behind MCP, and doing so would just add latency without adding a real
+capability boundary.
 
 BONUS — Multi-MCP integration: the agent also connects to a SECOND, wholly
 independent MCP server (`skills_db_mcp_server.py`, a skills-market-demand
@@ -18,7 +18,7 @@ agent orchestrating tools across multiple MCP servers in one workflow,
 exactly like a real deployment would mix a filesystem server with a
 database or search server.
 
-Design carried over from Milestone 3 (see project memory / README):
+Design principles:
   * Heuristic-first, LLM-optional: works fully offline; Gemini reasoning
     kicks in automatically only if GOOGLE_API_KEY is set.
   * Soft-penalty scoring, not hard AND-filters: a resume missing a
@@ -84,9 +84,6 @@ class AgentState(TypedDict, total=False):
 
 
 # --------------------------------------------------------------------------
-# Heuristic-first matching helpers (Milestone 2/3 logic, unchanged)
-# --------------------------------------------------------------------------
-
 # canonical skill -> aliases; word-boundary regex avoids "ts" matching
 # inside "tests" (a bug fixed in Milestone 2 and carried forward here).
 _SKILL_ALIASES = {
