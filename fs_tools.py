@@ -1,16 +1,16 @@
 """
 fs_tools.py
 -----------
-Milestone 1 file-system tool functions.
+File-system tool functions used by the MCP server.
 
 NOTE ON PROVENANCE:
-This module reproduces the PUBLIC FUNCTION SIGNATURES and behavior contract
-of Anjeee's actual Milestone 1 `fs_tools.py` (the Gemini function-calling
-file system assistant). It is written standalone here so Milestone 4 can be
-graded/demoed independently, but it is a drop-in replacement target: copy
-your real Milestone 1 `fs_tools.py` over this file and
-`filesystem_mcp_server.py` will keep working unmodified, AS LONG AS these
-function names / argument names / return shapes are preserved:
+This module reproduces the PUBLIC FUNCTION SIGNATURES and behavior
+contract of a Gemini function-calling file-system assistant. It is
+written standalone here so this project can be graded/demoed
+independently, but it is a drop-in replacement target: copy your own
+`fs_tools.py` over this file and `filesystem_mcp_server.py` will keep
+working unmodified, AS LONG AS these function names / argument names /
+return shapes are preserved:
 
     list_directory(path: str, pattern: str = "*") -> dict
     read_file(path: str) -> dict
@@ -56,7 +56,7 @@ def _safe_path(path: str) -> Path:
 
 
 # --------------------------------------------------------------------------
-# Core Milestone 1 tools
+# Core tools
 # --------------------------------------------------------------------------
 
 def list_directory(path: str, pattern: str = "*") -> Dict[str, Any]:
