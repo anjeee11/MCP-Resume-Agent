@@ -1,0 +1,12 @@
+# Milestone 4 — MCP-based resume matching system
+mcp==1.9.4
+langgraph>=1.2.11
+langchain-core>=1.6.3
+langgraph-checkpoint>=4.2.0
+langgraph-prebuilt>=1.1.0
+langgraph-sdk>=0.4.4
+watchdog>=6.0.0
+
+# Optional — only needed if you want the Gemini LLM sanity-check layer to
+# activate (agent runs fine, heuristic-only, without this + an API key)
+google-genai>=1.0.0

@@ -1,0 +1,6 @@
+Carla Singh
+Machine Learning Engineer
+
+Skills: Python, PyTorch, TensorFlow, LangGraph, LangChain, MLOps
+Experience: 4 years shipping ML pipelines, including a LangGraph-based
+multi-agent resume matching system (yes, really).

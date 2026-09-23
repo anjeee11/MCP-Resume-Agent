@@ -1,0 +1,6 @@
+Bob Martinez
+Frontend Developer
+
+Skills: JavaScript, TypeScript, React, CSS, Figma
+Experience: 3 years building customer-facing dashboards. No professional
+Python experience yet, learning it on weekends via personal projects.

@@ -1,0 +1,7 @@
+Alice Chen
+Senior Backend Engineer
+
+Skills: Python, FastAPI, PostgreSQL, Docker, Kubernetes, AWS
+Experience: 6 years building distributed systems. Led migration of a
+monolith to microservices at ScaleCo. Strong in system design and
+on-call ownership.
