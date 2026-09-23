@@ -1,24 +1,6 @@
 """
 filesystem_mcp_server.py
 =========================
-Milestone 4 — Part A: MCP Server Implementation.
-
-Wraps the Milestone 1 file-system tools (`fs_tools.py`) as a standards-
-compliant Model Context Protocol (MCP) server, built on the official
-Anthropic `mcp` Python SDK (`mcp.server.fastmcp.FastMCP`).
-
-Why FastMCP instead of hand-rolled JSON-RPC?
----------------------------------------------
-MCP's wire format IS JSON-RPC 2.0 (initialize / tools/list / tools/call /
-resources/list / resources/read, etc.) — that's what the spec mandates.
-FastMCP implements that JSON-RPC 2.0 layer, request routing, capability
-negotiation and error-code mapping for us, correctly, so this file can
-focus on the domain logic instead of re-implementing a JSON-RPC engine
-that the SDK already gets right. Everything below still satisfies the
-assignment's "JSON-RPC 2.0 compliant interface" requirement because the
-transport really is JSON-RPC 2.0 — you can see it by running the server
-in inspector mode (see README) and watching the raw frames.
-
 What this server exposes
 -------------------------
 MCP TOOLS (actions, callable by the agent):
@@ -128,7 +110,7 @@ mcp = FastMCP(CONFIG.server_name)
 
 
 # --------------------------------------------------------------------------
-# Tools: Milestone 1 file system tools, exposed 1:1
+# Tools:  file system tools, exposed 1:1
 # --------------------------------------------------------------------------
 
 @mcp.tool()
