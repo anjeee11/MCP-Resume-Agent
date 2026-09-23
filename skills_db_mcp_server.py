@@ -1,7 +1,7 @@
 """
 skills_db_mcp_server.py
 =========================
-Milestone 4 — Part B, Bonus: a SECOND, independent MCP server, used to
+Part B, Bonus: a SECOND, independent MCP server, used to
 demonstrate the agent talking to multiple MCP servers at once (filesystem +
 this one), each with its own process, its own tools, and its own resources.
 
