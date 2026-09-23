@@ -1,9 +1,3 @@
-# Milestone 4 — MCP-Based Resume Matching System
-
-Converts the Milestone 1 file-system tools into a real Model Context
-Protocol (MCP) server, and refactors the Milestone 3 LangGraph resume
-matching agent to talk to it (and to a second, bonus MCP server) via an
-MCP client — instead of importing tool functions directly.
 
 ## What's here
 
@@ -93,31 +87,6 @@ python tests/test_mcp_server.py        # 10/10 scenarios — MCP server only
 python tests/test_agent_integration.py # 6/6 scenarios  — agent + both MCP servers
 ```
 
-## What changed vs. Milestone 1 / Milestone 3
-
-- **Milestone 1** exposed `fs_tools.py` functions to Gemini via native
-  function-calling. Here, the *same* functions are exposed via the
-  standardized MCP tool interface instead — any MCP-compatible client
-  (not just this one agent) can now discover and call them.
-- **Milestone 3**'s agent imported file tools directly in-process. Here,
-  every file operation is a JSON-RPC 2.0 call to a separate server
-  process, enforced by an explicit sandbox check
-  (`_enforce_sandbox`) that a direct-import architecture didn't need
-  (and couldn't enforce as cleanly) because there was no process boundary.
-- **New in this milestone:** `watch_directory()` (diff-based directory
-  polling with an optional `watchdog`-backed background observer) and
-  `batch_process()` (concurrent multi-file operations, partial-failure
-  tolerant), plus a second MCP server to show multi-MCP orchestration.
-
-## Known simplifications / what to swap in for production
-
-- `fs_tools.py` here is self-contained per the docstring at its top —
-  drop in your real Milestone 1 file to use it unmodified, as long as the
-  8 function signatures listed there are preserved.
-- `_SKILL_ALIASES` in `matching_agent.py` is a small hand-built dictionary
-  standing in for Milestone 2's embedding/ChromaDB-based matcher, to keep
-  this milestone's demo runnable without your real M2 index. Swap in a
-  call to your real Milestone 2 module by replacing `score_resume()`.
 - `skills_db_mcp_server.py`'s market-demand numbers are illustrative seed
   data, not a live feed — the point is the multi-MCP wiring, not the data
   source.
